@@ -22,7 +22,7 @@ from django.utils import timezone
 
 
 class IndexView(generic.ListView):
-	template_name = 'polls/index.html'
+	template_name = 'polls/iindex.html'
 	context_object_name = 'latest_question_list'
 	
 	def get_queryset(self):
@@ -41,7 +41,7 @@ class ResultsView(generic.DetailView):
 	model = Question
 	template_name = 'polls/results.html'
 	
-def vote(request, question_id):
+def vote(request, questiion_id):
 	question = get_object_or_404(Question, pk=question_id)
 	try:
 		selected_choice = question.choice_set.get(pk=request.POST['choice'])
